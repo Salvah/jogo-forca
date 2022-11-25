@@ -8,7 +8,14 @@ let errors = 0
 let acertos = 0
 
 const verificaFimJogo = () => {
-    if (errors === 3 || acertos === objetivo.length) alert('FIM DO JOGO')
+
+    console.log(`./imgs/forca-${errors}.png`)
+    document.getElementById('forca').setAttribute(
+        'src', `./imgs/forca-${errors}.png`
+    )
+
+
+    if (errors === 6 || acertos === objetivo.length) alert('FIM DO JOGO')
 }
 
 const jogada = (l) => {
@@ -38,3 +45,13 @@ letras.forEach(l => {
     })
     botoes.appendChild(btn)
 })
+
+
+// Desabilitando todos os botões
+// const btns = document.getElementsByTagName('button')
+// for (let i = 0; i < btns.length; i++){
+//     btns[i].disabled = true
+// }
+
+// Array.from(document.getElementsByTagName('button'))
+//     .forEach(btn => btn.disabled = true)
