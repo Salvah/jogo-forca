@@ -20,7 +20,18 @@ const verificaFimJogo = () => {
 
 const jogada = (l) => {
     console.log(l)
-    errors++
+    if (objetivo.every(letra => letra !== l)){
+        errors++
+    }else{
+        for(let i = 0; i < objetivo.length; i++){
+            if (objetivo[i] === l){
+                acertos++
+                document.getElementById(`letra${i}`)
+                    .innerHTML = l
+            }
+        }
+    }
+    
     verificaFimJogo()
 }
 
