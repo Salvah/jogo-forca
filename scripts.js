@@ -3,12 +3,17 @@ const letras = ['A','B','C','D','E','F','G','H',
 'I','J','K','L','M','N','O','P','Q','R','S','T','U',
 'V','W','X','Y','Z'];
 
+
+let errors = 0
+let acertos = 0
+
 const verificaFimJogo = () => {
-    
+    if (errors === 3 || acertos === objetivo.length) alert('FIM DO JOGO')
 }
 
 const jogada = (l) => {
     console.log(l)
+    errors++
     verificaFimJogo()
 }
 
@@ -26,6 +31,9 @@ letras.forEach(l => {
     btn.setAttribute('type','button')
     btn.innerHTML = l
     btn.addEventListener('click', () => {
+        // Desabilitando o botão depois do 
+        // primeiro clique
+        btn.disabled = true
         jogada(btn.innerHTML)
     })
     botoes.appendChild(btn)
